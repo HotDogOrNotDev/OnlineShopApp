@@ -1,0 +1,57 @@
+### Регистрация
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+  "username": "user@gmail.com",
+  "password": "password",
+  "firstName": "Ivan",
+  "lastName": "Ivanov",
+  "phone": "+7 (999) 123-45-67",
+  "role": "USER"
+}
+
+### Вход
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "user@gmail.com",
+  "password": "password"
+}
+
+### Все объявления
+GET http://localhost:8080/ads
+
+### Объявления текущего пользователя
+GET http://localhost:8080/ads/me
+Authorization: Basic user@gmail.com password
+
+### Профиль
+GET http://localhost:8080/users/me
+Authorization: Basic user@gmail.com password
+
+### Обновить профиль
+PATCH http://localhost:8080/users/me
+Content-Type: application/json
+Authorization: Basic user@gmail.com password
+
+{
+  "firstName": "Ivan",
+  "lastName": "Ivanov",
+  "phone": "+7 (999) 123-45-67"
+}
+
+### Сменить пароль
+POST http://localhost:8080/users/set_password
+Content-Type: application/json
+Authorization: Basic user@gmail.com password
+
+{
+  "currentPassword": "password",
+  "newPassword": "password1"
+}
+
+### Комментарии объявления
+GET http://localhost:8080/ads/1/comments
+Authorization: Basic user@gmail.com password
